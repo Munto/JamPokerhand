@@ -2,12 +2,13 @@ module Pokerhand where
 import Data.List
 
 data Suit = Diamond | Clubs
+  deriving (Show, Eq, Ord)
 
-data Rank = VIII | IX | X | Jack | Queen | King | Ace 
+data Rank = VIII | IX | X | Jack | Queen | King | Ace
   deriving (Eq, Show, Ord)
 
-data Card = Card Rank Suit 
-  deriving (Show)
+data Card = Card Rank Suit
+  deriving (Show, Eq, Ord)
 
 rank :: Card -> Rank
 rank (Card rank _) = rank
