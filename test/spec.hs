@@ -50,37 +50,37 @@ main = hspec $ do
             let low = Hand ace king jack ten nine
             high > low `shouldBe` True
 
---        describe "pairs: two cards of same rank are a pair" $ do
---          it "pairs are stronger than high card" $ do
---            let akjt9 = Hand ace king jack ten nine
---            let kjt99 = Hand nine nine king jack ten
---            kjt99 > akjt9 `shouldBe` True
---          it "pairs are ordered by the rank of the pair cards" $ do
---            let qjtt9 = Hand queen jack ten ten nine
---            let kjt99 = Hand nine nine king jack ten
---            qjtt9 > kjt99 `shouldBe` True
---          it "when pairs are equal, revert to high card rule" $ do
---            let qjt99 = Hand queen jack ten nine nine
---            let kjt99 = Hand nine nine king jack ten
---            kjt99 > qjt99 `shouldBe` True
+        describe "pairs: two cards of same rank are a pair" $ do
+          it "pairs are stronger than high card" $ do
+            let akjt9 = Hand ace king jack ten nine
+            let kjt99 = Hand nine nine king jack ten
+            kjt99 > akjt9 `shouldBe` True
+          it "pairs are ordered by the rank of the pair cards" $ do
+            let qjtt9 = Hand queen jack ten ten nine
+            let kjt99 = Hand nine nine king jack ten
+            qjtt9 > kjt99 `shouldBe` True
+          it "when pairs are equal, revert to high card rule" $ do
+            let qjt99 = Hand queen jack ten nine nine
+            let kjt99 = Hand nine nine king jack ten
+            kjt99 > qjt99 `shouldBe` True
 
---        describe "double-pairs : two different pairs in a hand" $ do
---          it "double pairs are stronger than pairs" $ do
---            let tt998 = Hand ten ten nine nine eight
---            let aakq9 = Hand ace ace king queen nine
---            tt998 > aakq9 `shouldBe` True
---          it "double pairs are ordered by rank of high pair" $ do
---            let aa998 = Hand ace ace nine nine eight
---            let kkqq9 = Hand king king queen queen nine
---            aa998 > kkqq9 `shouldBe` True
---          it "if high pair is equal, order by rank of low pair" $ do
---            let aa998 = Hand ace ace nine nine eight
---            let aa988 = Hand ace ace nine eight eight
---            aa998 > aa988 `shouldBe` True
---          it "if both pairs are equal, compare the last card" $ do
---            let aa99q = Hand ace ace nine nine queen
---            let aa998 = Hand ace ace nine nine eight
---            aa99q > aa998 `shouldBe` True
+        describe "double-pairs : two different pairs in a hand" $ do
+          it "double pairs are stronger than pairs" $ do
+            let tt998 = Hand ten ten nine nine eight
+            let aakq9 = Hand ace ace king queen nine
+            tt998 > aakq9 `shouldBe` True
+          it "double pairs are ordered by rank of high pair" $ do
+            let aa998 = Hand ace ace nine nine eight
+            let kkqq9 = Hand king king queen queen nine
+            aa998 > kkqq9 `shouldBe` True
+          it "if high pair is equal, order by rank of low pair" $ do
+            let aa998 = Hand ace ace nine nine eight
+            let aa988 = Hand ace ace nine eight eight
+            aa998 > aa988 `shouldBe` True
+          it "if both pairs are equal, compare the last card" $ do
+            let aa99q = Hand ace ace nine nine queen
+            let aa998 = Hand ace ace nine nine eight
+            aa99q > aa998 `shouldBe` True
 
 --        describe "three of a kind : three cards of same rank" $ do
 --          it "three-of-a-kind are better than a double pair" $ do

@@ -26,7 +26,7 @@ instance Eq Hand where
   h == h' = (sortedcards h) == (sortedcards h')
 
 instance Ord Hand where
-  compare h h' = compare (sortedcards h) (sortedcards h')
+  compare h h' = compare (combination h) (combination h')
 
 sortedcards :: Hand -> [Card]
 sortedcards (Hand a b c d e) = (reverse.sort) [a, b, c, d, e]
@@ -36,6 +36,7 @@ data Combination = High [Card]
                  | Double [Card]
   deriving (Eq, Show, Ord)
 
+combination :: Hand -> Combination
 combination hand
   | isDouble hand = Double $ pairCard hand ++ restFrom hand
   | isPair hand   = Pair $ pairCard hand ++ restFrom hand
